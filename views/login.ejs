@@ -17,6 +17,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .login-container {
@@ -152,6 +154,121 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ================================
+           🌐 MEDIA QUERIES FOR RESPONSIVENESS
+           ================================ */
+
+        /* Mobile Devices (up to 480px) */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem;
+                max-width: 90%;
+                border-radius: 15px;
+            }
+
+            .login-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-group input {
+                padding: 0.7rem;
+            }
+
+            .submit-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .alternative-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .circle1,
+            .circle2,
+            .circle3 {
+                display: none;
+            }
+        }
+
+        /* Tablets & Medium Devices (481px - 768px) */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .login-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-group input {
+                padding: 0.75rem;
+            }
+
+            .submit-btn {
+                padding: 0.9rem;
+                font-size: 1rem;
+            }
+
+            .alternative-actions a {
+                font-size: 0.85rem;
+            }
+
+            .circle2 {
+                right: 10%;
+            }
+
+            .circle3 {
+                left: 40%;
+            }
+        }
+
+        /* Small Laptops & Large Tablets (769px - 1024px) */
+        @media (max-width: 1024px) {
+            .login-container {
+                max-width: 80%;
+            }
+
+            .login-header h1 {
+                font-size: 2.3rem;
+            }
+
+            .circle1 {
+                top: 10%;
+                left: 10%;
+            }
+
+            .circle2 {
+                top: 40%;
+                right: 10%;
+            }
+
+            .circle3 {
+                bottom: 10%;
+                left: 45%;
+            }
+        }
+
+        /* Desktops (1025px and up) */
+        @media (min-width: 1025px) {
+            .login-container {
+                max-width: 400px;
+            }
+
+            .login-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .circle1,
+            .circle2,
+            .circle3 {
+                display: block;
+            }
+        }
+
     </style>
 </head>
 <body>

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Safora - Your Safety Route Companion</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         * {
             margin: 0;
@@ -36,6 +39,13 @@
             font-weight: bold;
             color: white;
             text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
         }
 
         .nav-links {
@@ -121,6 +131,7 @@
             justify-content: center;
             margin-top: 2rem;
             animation: fadeIn 1s ease-out 1.5s backwards;
+            flex-wrap: wrap;
         }
 
         .feature-card {
@@ -158,12 +169,105 @@
         .circle1 { width: 100px; height: 100px; top: 20%; left: 20%; animation-delay: 0s; }
         .circle2 { width: 150px; height: 150px; top: 50%; right: 20%; animation-delay: 2s; }
         .circle3 { width: 80px; height: 80px; bottom: 20%; left: 50%; animation-delay: 4s; }
+
+        /* Responsive Queries */
+        @media (max-width: 1024px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .feature-card {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.75rem 1rem;
+            }
+
+            .hero-content {
+                padding-top: 6rem;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .feature-card {
+                width: 90%;
+            }
+
+            .circle1, .circle2, .circle3 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                font-size: 0.95rem;
+                padding: 0.7rem 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="#" class="logo">Safora</a>
-        <div class="nav-links">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <div class="nav-links" id="navLinks">
             <a href="#" class="nav-link">Home</a>
             <a href="#" class="nav-link">Routes</a>
             <a href="#" class="nav-link">Safety Tips</a>
@@ -179,7 +283,7 @@
         <div class="hero-content">
             <h1 class="title">Navigate Safely with Safora</h1>
             <p class="subtitle">Your intelligent companion for safer journeys</p>
-            
+
             <div class="cta-buttons">
                 <a href="/login" class="button button-primary">Get Started</a>
                 <a href="/signup" class="button button-secondary">Learn More</a>
@@ -204,5 +308,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
